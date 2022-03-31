@@ -1,0 +1,32 @@
+ON-TRACK
+
+
+Ideas...
+
+Goals -
+
+input a workout, exercise, and date. consistency and growth overtime
+Example
+I do push 2x's a week. my bench was 55/65/75 and i did 6/6/5 reps.
+Use this to build a graph and show improvements based on time
+
+
+future
+-- sync with fitbit/apple watch and auto load data with heart rates and workout times.
+
+Pages
+
+-----Auth-----
+login/auth
+sign up
+sign out modal? or back to login
+
+
+-----Home page?---- "welcome to church"
+View a workout track ->
+    -- filters by workout type
+    -- work out date
+
+Track a workout ->
+Enter a workout ->
+
