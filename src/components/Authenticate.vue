@@ -1,23 +1,28 @@
 <template>
   <section class="Authenticate">
-    <h3 v-if="!isLoggedIn" class="Authenticate__Item" @click="toggleLoggedIn">Login</h3>
-    <h3 v-if="!isLoggedIn" class="Authenticate__Item" @click="toggleLoggedIn">Sign Up</h3>
-    <h3 v-else class="Authenticate__Item" @click="toggleLoggedIn">Sign Out</h3>
+    <h3 v-if="!isLoggedIn" class="Authenticate__Item" @click="toLogin">Login</h3>
+    <h3 v-else class="Authenticate__Item" @click="logout">Sign Out</h3>
   </section>
 </template>
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
+import router from "@/router";
 
 export default class Authenticate extends Vue {
-  _loggedIn = false;
+  loggedIn = false;
 
-  toggleLoggedIn(): void {
-    this._loggedIn = !this._loggedIn
+  toLogin(): void {
+    router.push('/login')
+  }
+
+  logout(): void {
+    router.push('/home')
   }
 
   get isLoggedIn(): boolean {
-    return this._loggedIn;
+    // todo this would be a getter from the store
+    return this.loggedIn;
   }
 }
 
@@ -31,7 +36,7 @@ export default class Authenticate extends Vue {
   padding-right: .5rem;
   padding-left: .5rem;
 }
-.Authenticate__Item:last-of-type {
-  color: red;
-}
+//.Authenticate__Item:last-of-type {
+//  color: red;
+//}
 </style>

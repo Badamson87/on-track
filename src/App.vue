@@ -1,10 +1,17 @@
 <template>
-  <nav-bar/>
+  <el-container>
+    <el-header>
+      <nav-bar/>
+    </el-header>
+    <el-main>
+      <router-view />
+    </el-main>
+  </el-container>
 <!--  <div id="nav">-->
+<!--  example of router link navigation-->
 <!--    <router-link to="/">Home</router-link> |-->
 <!--    <router-link to="/about">About</router-link>-->
 <!--  </div>-->
-  <router-view />
 </template>
 
 <script lang="ts">
@@ -22,7 +29,6 @@ export default class App extends Vue {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
