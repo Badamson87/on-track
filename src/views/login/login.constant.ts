@@ -4,14 +4,14 @@ export const loginFields = {
     name: 'userName',
     selector: 'userName',
     display: 'User Name',
-    type: 'string',
+    type: 'text',
     value: ''
   },
   password: {
     name: 'password',
     selector: 'password',
     display: 'Password',
-    type: 'string',
+    type: 'password',
     value: '',
   },
 }
