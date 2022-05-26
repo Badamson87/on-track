@@ -8,21 +8,29 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 import router from "@/router";
+import store from "@/store";
+import { Component, Watch } from "vue-property-decorator";
 
 export default class Authenticate extends Vue {
-  loggedIn = false;
 
   toLogin(): void {
     router.push('/login')
   }
 
   logout(): void {
-    router.push('/home')
+    console.log('hit logout')
+    store.dispatch('user/setUser', {});
+    router.push('/home').catch((err: Error) => {
+      // todo handle error
+      console.log(err)
+    })
   }
 
-  get isLoggedIn(): boolean {
-    // todo this would be a getter from the store
-    return this.loggedIn;
+  @Watch('loggedIn', { immediate: true })
+  isLoggedIn(): boolean {
+    const x = store.getters['user/isLoggedIn']
+    console.log(x);
+    return x?.id
   }
 }
 
