@@ -20,7 +20,6 @@ import NavBar from './components/NavBar.vue';
 
 @Options({components: { NavBar }})
 export default class App extends Vue {
-
 }
 </script>
 
