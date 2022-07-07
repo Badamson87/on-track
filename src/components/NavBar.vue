@@ -12,8 +12,10 @@
 
 import { Options, Vue } from "vue-class-component";
 import Authenticate from './Authenticate.vue';
+import { mapState } from "vuex";
 
-@Options({ components: { Authenticate } })
+@Options({
+  components: { Authenticate } })
 export default class NavBar extends Vue {
 
 }

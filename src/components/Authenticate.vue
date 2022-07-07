@@ -1,36 +1,35 @@
 <template>
   <section class="Authenticate">
-    <h3 v-if="!isLoggedIn" class="Authenticate__Item" @click="toLogin">Login</h3>
-    <h3 v-else class="Authenticate__Item" @click="logout">Sign Out</h3>
+    <h3 v-if="user?.user?.id" class="Authenticate__Item" @click="logout">Sign Out</h3>
+    <h3 v-else class="Authenticate__Item" @click="toLogin">Login</h3>
+    <h1>{{ user?.id }}</h1>
   </section>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 import router from "@/router";
 import store from "@/store";
-import { Component, Watch } from "vue-property-decorator";
+import { mapState } from "vuex";
 
+@Options({
+  computed: mapState({
+    user: 'user.user',
+  })
+})
 export default class Authenticate extends Vue {
+  testUser: any;
 
   toLogin(): void {
     router.push('/login')
   }
 
   logout(): void {
-    console.log('hit logout')
-    store.dispatch('user/setUser', {});
-    router.push('/home').catch((err: Error) => {
+    store.dispatch('user/setUser', null);
+    router.push('/').catch((err: Error) => {
       // todo handle error
       console.log(err)
     })
-  }
-
-  @Watch('loggedIn', { immediate: true })
-  isLoggedIn(): boolean {
-    const x = store.getters['user/isLoggedIn']
-    console.log(x);
-    return x?.id
   }
 }
 
